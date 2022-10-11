@@ -47,6 +47,7 @@ function gotPoses(results)
   {
     rightWristX = results[0].pose.rightWrist.x;
     rightWristY = results[0].pose.rightWrist.y;
+    rightWristScore = results[0].pose.rightWrist.score;
   }
 }
 
@@ -54,7 +55,13 @@ function draw(){
 
 image(video, 0, 0, 700, 600);
  background(0); 
-
+ 
+ if (rightWristScore > 0.2);
+ {
+fill('#FF0000');
+stroke('#FF0000');
+circle(rightWristX, rightWristY, 15);
+ }
  fill("black");
  stroke("black");
  rect(680,0,20,700);
